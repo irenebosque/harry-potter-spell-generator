@@ -6,9 +6,6 @@ class Spell {
 }
 
 
-
-
-
 const accio = new Spell('Accio', 'to call an object to you')
 const aguamenti = new Spell('Aguamenti', ' Produces a clean, drinkable jet of water from the wand tip')
 const alohomora = new Spell('Alohomora', 'to open locked windows and doors')
@@ -62,7 +59,22 @@ spells = [
 
 
 
-let randomNumber = Math.floor(Math.random() * spells.length)
 
-console.log(spells[randomNumber].name)
-console.log(spells[randomNumber].explanation)
+
+const eventHandelerFunction = function () {
+    let randomNumber = Math.floor(Math.random() * spells.length)
+    displaySpell.innerHTML = spells[randomNumber].name
+    displaySpellExplanation.innerHTML = spells[randomNumber].explanation
+    
+    
+
+}
+
+
+let eventTarget = document.getElementById('cast-button')
+let displaySpell = document.getElementById('spell')
+let displaySpellExplanation = document.getElementById('spell-explanation')
+
+
+eventTarget.addEventListener('click', eventHandelerFunction)
+
